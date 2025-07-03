@@ -4,10 +4,17 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: 'dist', // Make sure the output folder is set (default is 'dist')
+    outDir: 'dist',
   },
   server: {
-    port: 5173,     // Local dev port
-    host: true,     // Allow access on local network (needed on Render sometimes)
+    port: 5173,
+    host: true,
+    strictPort: true,
+  },
+  preview: {
+    port: 10000,
+    host: true,
+    strictPort: true,
+    allowedHosts: ['imagify-viso.onrender.com'], // ✅ Add your Render domain here
   },
 })
